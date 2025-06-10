@@ -1,0 +1,93 @@
+/* dashboard.component.css */
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  background-color:#00095B; /* Azure Blue background */
+  color: #fff; /* White text */
+}
+
+.teammates-container {
+  overflow-y: auto;
+  max-height: 100%;
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.teammates-container::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.project-owner-card {
+  padding: 15px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ffecb3, #ffe082);
+  border: 2px solid #ffca28;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.no-users-message {
+  text-align: center;
+  color: #757575;
+  font-size: 1.2em;
+  margin: 20px 0;
+}
+
+.teammates-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.teammate-card {
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #e1f5fe;
+  border: 1px solid #81d4fa;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.teammate-card:hover {
+  background-color: #b3e5fc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px; /* Adjust margin if needed */
+}
+
+.profile-circle {
+  width: 36px;
+  height: 36px;
+  background-color: #1976d2; /* Azure Blue */
+  color: #fff; /* White text */
+  border-radius: 50%;
+  text-align: center;
+  line-height: 36px;
+  font-size: 1.2em;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -2px; /* Adjust this value to move the circle up or down */
+}
+
+.user-profile p {
+  margin: 0;
+  line-height: 1.5; /* Adjust line height for better vertical alignment */
+}
+
+
+.profile-circle:hover {
+  background-color: #1565c0; /* Darker shade of Azure Blue on hover */
+}

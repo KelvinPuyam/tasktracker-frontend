@@ -1,0 +1,29 @@
+<div class="project-name" *ngIf="project">
+  <h4>{{ project.name }}</h4>
+  <button mat-raised-button color="primary" class="new-task-button" *ngIf="!isReadOnly" (click)="openDialog()">+ New Task</button>
+</div>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Owner</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks; trackBy: trackById">
+        <td>{{ task.description }}</td>
+        <td>{{ task.due_date }}</td>
+        <td>
+          <span class="status-box" [ngClass]="getStatusClass(task.status)">
+            {{ formatStatus(task.status) }}
+          </span>
+        </td>
+        <td>{{ getUserName(task.owner) }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

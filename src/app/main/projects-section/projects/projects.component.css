@@ -1,0 +1,123 @@
+/* Reset some default styles for ul and li */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 90%;
+  min-width: 1200px;
+  max-width: 1200px;
+  padding: 20px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.card-title {
+  font-size: 2em;
+  color: #333;
+  text-decoration: none;
+  background: linear-gradient(90deg, #00095B, #00095B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: color 0.3s ease;
+}
+
+.card-title:hover {
+  color: #b67eff;
+  text-decoration: underline;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-button mat-icon {
+  font-size: 18px; /* Adjust the size of the icons */
+}
+
+.card p {
+  margin: 5px 0;
+  font-size: 1.1em;
+  color: #666;
+}
+
+.card button {
+  align-self: flex-end;
+  margin-top: 10px;
+  background-color: #00095B;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+/* Style for the button using Angular Material */
+.mat-button:hover,
+.card button:hover {
+  background-color: #1565c0;
+}
+
+/* Styles for the container and title */
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: linear-gradient(135deg, #ece9e6, #ffffff);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 1800px;
+  gap: 20px;
+}
+
+.new-project-button {
+  margin-left: auto;
+  padding: 10px 20px; /* Added padding for larger button */
+  font-size: 1.2em; /* Increased font size */
+  color: #00095B;
+}
+
+.filter-field {
+  margin-right: 30px; /* Add some space between the filter field and the new project button */
+  width: 800px; /* Increased width for the filter field */
+  text-decoration: none; /* Remove underline */
+}

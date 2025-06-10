@@ -1,0 +1,37 @@
+<div class="content">
+  <div class="title">
+    <h4>Projects</h4>
+    <mat-form-field class="filter-field">
+      <mat-label>Search</mat-label>
+      <input matInput (input)="onFilterInput($event)">
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="new-project-button"
+            (click)="navigateToAddProject()" *ngIf="isAdmin">
+      + New Project
+    </button>
+  </div>
+  <div class="card-container">
+    <ul>
+      <li *ngFor="let project of filteredProjects; trackBy: trackByProjectId">
+        <div class="card">
+          <div class="card-header">
+            <a [routerLink]="['/projects', project.id]" class="card-title">{{ project.name }}</a>
+            <div class="card-actions" *ngIf="isAdmin">
+              <button mat-icon-button (click)="editProject(project.id)" class="icon-button">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button (click)="deleteProject(project.id)" class="icon-button">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+          <p>Description: {{ project.description }}</p>
+          <p>Start Date: {{ project.start_date | date }}</p>
+          <p>End Date: {{ project.end_date | date }}</p>
+          <p>Owner: {{ getUserName(project.owner) }}</p>
+          <button mat-button (click)="showTasks(project.id)">Show Tasks</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

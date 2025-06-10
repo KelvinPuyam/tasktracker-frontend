@@ -1,0 +1,111 @@
+
+<div class="task-columns" cdkDropListGroup>
+  <div class="task-column">
+    <h3>New</h3>
+    <div cdkDropList
+         id="newTasks"
+         class="task-list"
+         [cdkDropListData]="newTasks"
+         [cdkDropListConnectedTo]="allDropListsExcept('newTasks')"
+         (cdkDropListDropped)="dropMultiList($event)">
+      <mat-card *ngFor="let task of newTasks" class="task-card" cdkDrag>
+        <mat-card-header>
+          <mat-card-title>{{ task.description }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="task-details">
+            <p class="task-detail-item">Due Date: {{ task.due_date | date:'dd MMM, y' }}</p>
+            <p class="task-detail-item">Status: {{ task.status }}</p>
+          </div>
+          <div class="user-profile">
+            <div class="profile-circle">{{ users[getUserid(task.owner)].charAt(0).toUpperCase() }}</div>
+            <p>{{ users[getUserid(task.owner)] }}</p>
+          </div>
+        </mat-card-content>
+
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="task-column">
+    <h3>In Progress</h3>
+    <div cdkDropList
+         id="inProgressTasks"
+         class="task-list"
+         [cdkDropListData]="inProgressTasks"
+         [cdkDropListConnectedTo]="allDropListsExcept('inProgressTasks')"
+         (cdkDropListDropped)="dropMultiList($event)">
+      <mat-card *ngFor="let task of inProgressTasks" class="task-card" cdkDrag>
+        <mat-card-header>
+          <mat-card-title>{{ task.description }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="task-details">
+            <p class="task-detail-item">Due Date: {{ task.due_date | date:'dd MMM, y' }}</p>
+            <p class="task-detail-item">Status: {{ task.status }}</p>
+          </div>
+          <div class="user-profile">
+            <div class="profile-circle">{{ users[getUserid(task.owner)].charAt(0).toUpperCase() }}</div>
+            <p>{{ users[getUserid(task.owner)] }}</p>
+          </div>
+        </mat-card-content>
+
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="task-column">
+    <h3>Completed</h3>
+    <div cdkDropList
+         id="completedTasks"
+         class="task-list"
+         [cdkDropListData]="completedTasks"
+         [cdkDropListConnectedTo]="allDropListsExcept('completedTasks')"
+         (cdkDropListDropped)="dropMultiList($event)">
+      <mat-card *ngFor="let task of completedTasks" class="task-card" cdkDrag>
+        <mat-card-header>
+          <mat-card-title>{{ task.description }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="task-details">
+            <p class="task-detail-item">Due Date: {{ task.due_date | date:'dd MMM, y' }}</p>
+            <p class="task-detail-item">Status: {{ task.status }}</p>
+          </div>
+          <div class="user-profile">
+            <div class="profile-circle">{{ users[getUserid(task.owner)].charAt(0).toUpperCase() }}</div>
+            <p>{{ users[getUserid(task.owner)] }}</p>
+          </div>
+        </mat-card-content>
+
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="task-column">
+    <h3>Accepted</h3>
+    <div cdkDropList
+         id="acceptedTasks"
+         class="task-list"
+         [cdkDropListData]="acceptedTasks"
+         [cdkDropListConnectedTo]="allDropListsExcept('acceptedTasks')"
+         (cdkDropListDropped)="dropMultiList($event)"
+         [cdkDropListEnterPredicate]="ReadonlyPredicate()">
+      <mat-card *ngFor="let task of acceptedTasks" class="task-card" cdkDrag>
+        <mat-card-header>
+          <mat-card-title>{{ task.description }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="task-details">
+            <p class="task-detail-item">Due Date: {{ task.due_date | date:'dd MMM, y' }}</p>
+            <p class="task-detail-item">Status: {{ task.status }}</p>
+          </div>
+          <div class="user-profile">
+            <div class="profile-circle">{{ users[getUserid(task.owner)].charAt(0).toUpperCase() }}</div>
+            <p>{{ users[getUserid(task.owner)] }}</p>
+          </div>
+        </mat-card-content>
+
+      </mat-card>
+    </div>
+  </div>
+</div>

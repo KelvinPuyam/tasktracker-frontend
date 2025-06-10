@@ -1,0 +1,14 @@
+<div class="container">
+  <button class="scroll-button left" (click)="scrollLeft()">&#8249;</button>
+  <div class="projects-container" #projectsContainer>
+    <div class="project-card"
+      *ngFor="let project of projects"
+      [ngClass]="{ 'active': project.id === selectedProjectId }"
+    >
+      <h4 (click)="redirectToProjectDetails(project.id)" class="project-name">{{ project.name }}</h4>
+      <p>Owner: {{ project.owner }}</p>
+      <button mat-button (click)="showTasks(project.id)" routerLinkActive="active-link" class="more-button">More</button>
+    </div>
+  </div>
+  <button class="scroll-button right" (click)="scrollRight()">&#8250;</button>
+</div>

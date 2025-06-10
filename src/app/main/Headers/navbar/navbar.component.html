@@ -1,0 +1,33 @@
+<mat-toolbar class="custom-toolbar" color="">
+  <span class="app-title" routerLink="/home" style="cursor: pointer;">Project Tracker</span>
+  <span class="example-spacer"></span>
+  <button mat-button routerLink="/projects" routerLinkActive="active-link" class="white-text">Projects</button>
+  <button mat-button routerLink="/yourtask" routerLinkActive="active-link" class="white-text">Your Tasks</button>
+  <button mat-button *ngIf="isAdmin" routerLink="/roles" routerLinkActive="active-link" class="white-text"  >Assign Roles</button>
+  <button mat-icon-button aria-label="Notification icon" class="white-text">
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <button mat-icon-button class="white-text" [matMenuTriggerFor]="menu" aria-label="User icon">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <mat-card class="example-card" appearance="outlined">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image">
+          {{ user?.username[0] }}
+        </div>
+        <mat-card-title>{{ user?.username }}</mat-card-title>
+        <mat-card-subtitle>{{ user?.email }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>First Name:</strong> {{ user?.first_name }}</p>
+        <p><strong>Last Name:</strong> {{ user?.last_name }}</p>
+      </mat-card-content>
+    </mat-card>
+    <button mat-menu-item style="color: red" (click)="logout()">
+      <mat-icon style="color: red">exit_to_app</mat-icon>
+      Log Out
+    </button>
+  </mat-menu>
+</mat-toolbar>

@@ -1,0 +1,25 @@
+<mat-card class="full-width-card">
+  <mat-card-header>
+    <div style="text-align:center; display: flex;
+    justify-content: center;
+    align-items: center;">
+      <mat-card-title>Tasks</mat-card-title>
+    </div>
+
+  </mat-card-header>
+</mat-card>
+
+<div *ngIf="tasks.length === 0" class="no-tasks-message">
+  <p>Click More to see the project's tasks.</p>
+</div>
+
+<div *ngIf="tasks.length > 0" class="tasks-container">
+  <div class="task-card-row">
+    <div class="task-card" *ngFor="let task of tasks">
+      <p class="task-description">{{ task.description }}</p>
+      <p class="task-due-date">Due Date: {{ task.due_date | date:'dd MMM, y' }}</p>
+      <p class="task-status">Status: {{ task.status }}</p>
+      <p class="task-owner">Owner: {{ task.owner }}</p>
+    </div>
+  </div>
+</div>

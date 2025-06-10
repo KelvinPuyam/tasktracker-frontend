@@ -1,0 +1,41 @@
+<div class="new-task-container">
+  <mat-card>
+    <mat-card-content>
+      <h4>Create New Task</h4>
+      <form [formGroup]="newTaskForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Choose the Project</mat-label>
+          <mat-select formControlName="project" required>
+            <mat-option *ngFor="let project of projects" [value]="project.id">
+              {{ project.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description" rows="3" required></textarea>
+        </mat-form-field>
+        <div class="date-range">
+          <mat-form-field appearance="fill" class="end-date">
+            <mat-label>Due Date</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="due_date" required>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="end-date">
+            <mat-label>Assign To</mat-label>
+            <mat-select formControlName="owner" required>
+              <mat-option *ngFor="let user of users" [value]="user.id">
+                {{ user.username }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="button-group">
+          <button mat-raised-button color="primary" type="submit" class="custom-button">Create Task</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,39 @@
+<mat-card class="full-width-card">
+  <mat-card-header>
+    <mat-card-title>Teammates</mat-card-title>
+  </mat-card-header>
+</mat-card>
+
+<div *ngIf="!projectOwner && !teammates" class="no-users-message">
+  <p>Click More to see the project's users.</p>
+</div>
+
+<!-- Display project owner and teammates based on selection -->
+<div *ngIf="projectOwner" class="teammates-container">
+
+  <!-- Project Owner Details -->
+  <div class="project-owner-card">
+    <div class="user-profile">
+      <div class="profile-circle">{{ projectOwner.first_name.charAt(0) }}</div>
+      <p>{{ projectOwner.first_name }} {{ projectOwner.last_name }} ({{ projectOwner.email }}) : Project Owner</p>
+    </div>
+  </div>
+
+  <!-- Message when no teammates are assigned to the project -->
+  <div *ngIf="teammates === null" class="no-users-message">
+    <p>This project's task hasn't been assigned to any users yet.</p>
+  </div>
+
+  <!-- List of teammates when they exist -->
+  <div *ngIf="teammates && teammates.length > 0">
+    <h4>Teammates</h4>
+    <ul class="teammates-list">
+      <li *ngFor="let teammate of teammates" class="teammate-card">
+        <div class="user-profile">
+          <div class="profile-circle">{{ teammate.first_name.charAt(0) }}</div>
+          <p>{{ teammate.first_name }} {{ teammate.last_name }} ({{ teammate.email }})</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

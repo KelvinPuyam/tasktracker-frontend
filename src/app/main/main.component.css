@@ -1,0 +1,4 @@
+.main-container {
+  background-color: #F5F5F5; /* Replace with your desired color */
+  min-height: 100vh; /* Ensure the container fills the viewport height */
+}

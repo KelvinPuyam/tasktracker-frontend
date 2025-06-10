@@ -1,0 +1,12 @@
+<div class="grid-container">
+  <div class="dashboard">
+    <app-dashboard (tasks)="onTasksReceived($event)" (users)="onTeammatesReceived($event)"></app-dashboard>
+
+  </div>
+  <div class="tasks">
+    <app-tasks-home [tasks]="tasks"></app-tasks-home>
+  </div>
+  <div class="teammates">
+    <app-teammates [projectOwner]="projectOwner" [teammates]="teammates"></app-teammates>
+  </div>
+</div>

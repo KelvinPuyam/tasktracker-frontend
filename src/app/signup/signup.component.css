@@ -1,0 +1,68 @@
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('./../mascot.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Apply blur to the background image */
+}
+
+/* Ensure mat-card content is not blurred */
+.mat-card {
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  position: relative; /* Ensure z-index works */
+  z-index: 1; /* Ensure card content is above blurred background */
+}
+
+.welcome-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button-group button {
+  margin: 0 10px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Responsive design */
+@media (min-width: 600px) {
+  mat-card {
+    width: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  mat-card {
+    width: 30%;
+  }
+}
